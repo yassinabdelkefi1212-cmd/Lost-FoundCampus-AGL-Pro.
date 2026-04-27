@@ -13,6 +13,9 @@ La solution : "Lost&FoundCampus est une application web minimaliste qui indexe l
 
 L'angle technique : "Nous avons adopté une approche hybride : l'IA pour la génération de la structure et l'expertise humaine pour la logique métier et la sécurité."
 
+# Lien vers le prototype interactif : 
+[https://www.figma.com/make/ZZOu6ybih0tDiHKWNBCAUS/Lost-Items-Finder-App?fullscreen=1&&t=7M7QC2cLQ8KekaOS-1]
+
 ## 🚀 Technologies utilisées
 * Java (JDK 17+)
 * Jira(SCRUM)
