@@ -21,4 +21,4 @@ L'angle technique : "Nous avons adopté une approche hybride : l'IA pour la gén
 * Jira(SCRUM)
 * GitHub (Gestion de version)
 * Figma (Prototypage UI)
-* VS code
+* Chatgpt
