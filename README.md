@@ -3,9 +3,9 @@ Application Java de gestion d'objets perdus/trouvés pour campus universitaire, 
 ## 👥 Membres de l'Équipe
 * **Kenza [Nom]** : Responsable Authentification & Profils
 * **Nour [Nom]** : Responsable Publication & Gestion des Annonces
-* **Yassin [Nom]** : Responsable Recherche & Filtres (Lead Dev)
+* **Yassin [Nom]** : Responsable Administration & Statistiques 
 * **Ahmed [Nom]** : Responsable Messagerie Interne
-* **Aziz [Nom]** : Responsable Administration & Statistiques
+* **Aziz [Nom]** : Responsable Recherche & Filtres (Lead Dev)
 
 ## 🚀 Technologies utilisées
 * Java (JDK 17+)
