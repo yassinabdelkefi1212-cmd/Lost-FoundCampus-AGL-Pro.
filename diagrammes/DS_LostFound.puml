@@ -1,0 +1,29 @@
+@startuml
+actor Etudiant
+participant "Système d'Authentification" as Auth
+participant "Gestionnaire d'Annonces" as Gestion
+database "Base de Données" as DB
+
+Etudiant -> Auth : seConnecter(email, mdp)
+Auth -> DB : verifierIdentifiants(email, mdp)
+DB --> Auth : utilisateurValide
+
+alt Authentification réussie
+    Auth --> Etudiant : sessionOuverte
+else Échec
+    Auth --> Etudiant : messageErreur("Identifiants incorrects")
+end
+
+opt Si authentifié
+    Etudiant -> Gestion : publierAnnonce(detailsObjet, photo)
+    Gestion -> DB : enregistrerAnnonce(details)
+    DB --> Gestion : confirmationEnregistrement
+
+    loop Pour chaque membre abonné
+        Gestion -> Gestion : envoyerNotification()
+    end
+
+    Gestion --> Etudiant : confirmationPublication
+end
+
+@enduml
