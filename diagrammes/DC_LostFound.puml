@@ -1,0 +1,86 @@
+@startuml
+
+class Utilisateur {
+  -int id
+  -String nom
+  -String email
+  -String motDePasse
+  +Utilisateur()
+  +seConnecter(): boolean
+  +sinscrire(): void
+}
+
+class Etudiant {
+  -String numeroEtudiant
+  +Etudiant()
+  +declarerObjet(): void
+  +contacterProprietaire(): void
+}
+
+class Administrateur {
+  -String role
+  +Administrateur()
+  +supprimerAnnonce(int idAnnonce): void
+  +consulterStats(): void
+}
+
+Utilisateur <|-- Etudiant
+Utilisateur <|-- Administrateur
+
+class Catalogue {
+  -List<Annonce> listeAnnonces
+  +Catalogue()
+  +rafraichir(): void
+}
+
+class Filtre {
+  -String critereCategorie
+  -Date critereDate
+  +Filtre()
+  +appliquer(List<Annonce> list): List<Annonce>
+}
+
+class Annonce {
+  -int idAnnonce
+  -Date datePublication
+  -String statut
+  +Annonce()
+  +publier(): void
+  +supprimer(): void
+}
+
+class Objet {
+  -String nom
+  -String description
+  -String categorie
+  -String photoUrl
+  +Objet()
+  +getDetails(): String
+}
+
+class Message {
+  -int idMessage
+  -String contenu
+  -Date dateEnvoi
+  +Message()
+  +envoyer(): void
+}
+
+class Dashboard {
+  -int totalAnnonces
+  -int objetsTrouves
+  +Dashboard()
+  +genererRapport(): void
+}
+
+Catalogue "1" -- "0..*" Annonce : possède
+Catalogue ..> Filtre : utilise
+
+Etudiant "1" -- "0..*" Annonce : gère
+Annonce "1" -- "1" Objet : contient
+
+Etudiant "0..*" -- "0..*" Message : envoie/reçoit
+
+Administrateur "1" -- "1" Dashboard : consulte
+
+@enduml
