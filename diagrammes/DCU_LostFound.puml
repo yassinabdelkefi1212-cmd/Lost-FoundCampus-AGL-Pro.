@@ -1,1 +1,34 @@
+@startuml
+left to right direction
 
+actor Utilisateur
+actor Etudiant
+actor Administrateur
+
+Etudiant --|> Utilisateur
+
+rectangle "Système de Gestion d'Objets Perdus/Trouvés" {
+
+  Utilisateur --> (S'inscrire)
+  Utilisateur --> (Se connecter)
+
+  (S'inscrire) ..> (S'authentifier) : <<include>>
+  (Se connecter) ..> (S'authentifier) : <<include>>
+
+  Etudiant --> (Déclarer un objet perdu)
+  Etudiant --> (Déclarer un objet trouvé)
+  Etudiant --> (Consulter les annonces)
+  Etudiant --> (Contacter un propriétaire)
+  Etudiant --> (Gérer ses propres annonces)
+
+  (Déclarer un objet perdu) ..> (Envoyer une photo) : <<extend>>
+  (Déclarer un objet trouvé) ..> (Envoyer une photo) : <<extend>>
+  (Consulter les annonces) ..> (Rechercher par filtre) : <<extend>>
+
+  (Contacter un propriétaire) ..> (S'authentifier) : <<include>>
+
+  Administrateur --> (Supprimer n'importe quelle annonce)
+  Administrateur --> (Consulter les statistiques)
+}
+
+@enduml
